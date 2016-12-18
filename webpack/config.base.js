@@ -25,6 +25,10 @@ export default () => ({
         loaders: loaders(source),
     },
 
+    resolve: {
+        extensions: ['', '.ts', '.js'],
+    },
+
     eslint: {
         configFile: '.eslintrc',
     },
@@ -45,7 +49,7 @@ export default () => ({
     },
 
     devServer: {
-        outputPath: destination
+        outputPath: destination,
     },
 
     postcss: () => [cssnext(cssnextConfig), cssMqpacker],
@@ -55,10 +59,6 @@ export default () => ({
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'src/index.html',
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'counter.html',
-            template: 'src/counter.html',
         }),
         new CopyWebpackPlugin([
             {

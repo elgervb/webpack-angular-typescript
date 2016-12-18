@@ -1,4 +1,4 @@
-export default (source) => [
+export default () => [
     {
         test: /\.scss$/,
         loaders: ['style', 'css?sourceMap', 'postcss?sourceMap', 'sass?sourceMap'],
@@ -6,7 +6,12 @@ export default (source) => [
     {
         test: /\.js$/,
         exclude: [/node_modules/],
-        loader: 'babel',
+        loaders: ['ng-annotate', 'babel'],
+    },
+    {
+        test: /\.ts$/,
+        exclude: [/node_modules/],
+        loader: 'ts-loader',
     },
     {
         test: /\.html$/,
@@ -23,4 +28,4 @@ export default (source) => [
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'file',
     },
-]
+];
